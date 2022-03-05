@@ -1,0 +1,26 @@
+name: 'Composite Action Template'
+description: 'Get started with Composite actions'
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time:
+    description: 'The time we greeted you'
+    value: ${{ steps.greeted-at.outputs.time }}
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Hello ${WHO}"
+      shell: bash
+      env:
+        WHO: ${{ inputs.who-to-greet }}
+    - id: greeted-at
+      run: |
+        time=$(date)
+        echo "::set-output name=time::${time}"
+      shell: bash
+branding:
+  icon: 'award'  
+  color: 'green'
