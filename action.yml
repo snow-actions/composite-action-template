@@ -6,21 +6,21 @@ inputs:
     required: true
     default: 'World'
 outputs:
-  time:
-    description: 'The time we greeted you'
-    value: ${{ steps.greeted-at.outputs.time }}
+  greet:
+    description: 'The word we greeted you'
+    value: ${{ steps.greet.outputs.word }}
 runs:
   using: "composite"
   steps:
-    - run: echo "Hello ${WHO}"
+    - id: greet
+      run: |
+        GREET="Hello ${WHO}"
+        echo "${GREET}"
+        echo "${GREET}" > greet.txt
+        echo "::set-output name=word::${GREET}"
       shell: bash
       env:
         WHO: ${{ inputs.who-to-greet }}
-    - id: greeted-at
-      run: |
-        time=$(date)
-        echo "::set-output name=time::${time}"
-      shell: bash
 branding:
   icon: 'award'  
   color: 'green'
