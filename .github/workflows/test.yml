@@ -55,7 +55,7 @@ jobs:
   # Make up matrix statuses into a status for status checks in branch protection rules
   test-passing:
     needs: [ test-without-parameters, test-with-parameters ]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     timeout-minutes: 1
 
     steps:
