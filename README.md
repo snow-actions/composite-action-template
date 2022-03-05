@@ -24,14 +24,29 @@ The action.yml also defines the steps for your action.
 
 Update the action.yml with your steps for your action.
 
+## Test
+
+Test is written in [test.yml](.github/workflows/test.yml).
+
+You can use `test`, `[`, `[[` and `((` commands for asserting on bash.
+
+Be aware that `[` and `[[` with single line need to be enclosed in `''` or `""` on YAML.
+
+```yaml
+- run: test "${GREET}" = "Hello World"
+- run: '[ "${GREET}" = "Hello World" ]'
+- run: '[[ "${GREET}" == "Hello World" ]'
+- run: (( ${NUMBER} == 1 ))
+```
+
 ## Validate
 
 You can now validate the action by referencing `./` in a workflow in your repo (see [test.yml](.github/workflows/test.yml))
 
 ```yaml
-uses: ./
-with:
-  who-to-greet: World
+- uses: ./
+  with:
+    who-to-greet: World
 ```
 
 See the [actions tab](https://github.com/actions/composite-action-template/actions) for runs of this action! :rocket:
