@@ -19,7 +19,6 @@ jobs:
     timeout-minutes: 1
     defaults:
       run:
-        # powershell might be better on windows-*
         shell: bash
 
     steps:
