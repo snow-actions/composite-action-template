@@ -27,3 +27,21 @@ steps:
     with:
       who-to-greet: Your name
 ```
+
+## Environment variables
+
+| Name | Description | Default | Required |
+| - | - | - | - |
+| `WHO_TO_GREET` | Who to greet | `World` | no |
+
+## Inputs
+
+| Name | Description | Default | Required |
+| - | - | - | - |
+| `who-to-greet` | Who to greet | `World` | yes |
+
+## Outputs
+
+| Name | Description |
+| - | - |
+| `greet` | The word we greeted you |
