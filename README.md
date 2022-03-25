@@ -2,63 +2,75 @@
 
 # Create a Composite Action
 
-Use this template to bootstrap the creation of a [composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action).:rocket:
+Click the `Use this template` to bootstrap the creation of a [composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action).:rocket:
 
-This template includes tests, a validation workflow and versioning guidance.  
+This template includes tests, a validation workflow and versioning guidance.
 
-## Create an action from this template
-
-Click the `Use this Template` and provide the new repo details for your action.
-
-See the [documentation](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
-
-## Change action.yml
-
-The action.yml defines the inputs and outputs for your action.
-
-Update the action.yml with your name, description, inputs, outputs and branding for your action.
-
-See the [documentation](https://help.github.com/en/articles/metadata-syntax-for-github-actions).
-
-## Change the Code
-
-The action.yml also defines the steps for your action.
-
-Update the action.yml with your steps for your action.
-
-## Test
-
-Test is written in [test.yml](.github/workflows/test.yml).
-
-You can use `test`, `[`, `[[` and `((` commands for asserting on bash.
-
-Be aware that `[` and `[[` with single line need to be enclosed in `''` or `""` on YAML.
-
-```yaml
-- run: test "${GREET}" = "Hello World"
-- run: '[ "${GREET}" = "Hello World" ]'
-- run: '[[ "${GREET}" == "Hello World" ]'
-- run: (( ${NUMBER} == 1 ))
-```
-
-## Validate
-
-You can now validate the action by referencing `./` in a workflow in your repo (see [test.yml](.github/workflows/test.yml))
-
-```yaml
-- uses: ./
-  with:
-    who-to-greet: World
-```
-
-See the [actions tab](https://github.com/actions/composite-action-template/actions) for runs of this action! :rocket:
+Learn how to use this template at [Wiki](https://github.com/snow-actions/composite-action-template/wiki).
 
 ## Usage
 
-After testing you can [create a v1 tag](https://github.com/actions/toolkit/blob/master/docs/action-versioning.md) to reference the stable and latest V1 action
+See [action.yml](action.yml)
 
-## Other official action templates
+### Basic
 
-- [actions/javascript-action](https://github.com/actions/javascript-action)
-- [actions/typescript-action](https://github.com/actions/typescript-action)
-- [actions/container-action](https://github.com/actions/container-action)
+```yml
+steps:
+  - uses: snow-actions/composite-action-template@v1.0.0
+```
+
+### Optional
+
+```yml
+steps:
+  - uses: snow-actions/composite-action-template@v1.0.0
+    with:
+      who-to-greet: Your name
+```
+
+## Environment variables
+
+| Name | Description | Default | Required |
+| - | - | - | - |
+| `WHO_TO_GREET` | Who to greet | `World` | no |
+
+## Inputs
+
+| Name | Description | Default | Required |
+| - | - | - | - |
+| `who-to-greet` | Who to greet | `World` | yes |
+
+## Outputs
+
+| Name | Description |
+| - | - |
+| `greet` | The word we greeted you |
+
+## Supported
+
+### Runners
+
+- `ubuntu-20.04`
+- `ubuntu-18.04`
+- `windows-2022`
+- `windows-2019`
+- `macos-11`
+- `macos-10.15`
+- `self-hosted`
+
+### Events
+
+- Any
+<!--
+- `push`
+- `pull_request`
+-->
+
+## Dependencies
+
+- [actions/cache](https://github.com/actions/cache) >= 3.0.0
+- [GitHub CLI](https://cli.github.com/) >= 2.6.0
+
+## Contributing
+
+Welcome.
