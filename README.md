@@ -45,3 +45,7 @@ steps:
 | Name | Description |
 | - | - |
 | `greet` | The word we greeted you |
+
+## Contributing
+
+Welcome.
