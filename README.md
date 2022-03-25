@@ -46,6 +46,22 @@ steps:
 | - | - |
 | `greet` | The word we greeted you |
 
+## Supported
+
+### Runners
+
+- `ubuntu-20.04`
+- `ubuntu-18.04`
+- `windows-2022`
+- `windows-2019`
+- `macos-11`
+- `macos-10.15`
+- `self-hosted`
+
+### Events
+
+- Any
+
 ## Contributing
 
 Welcome.
