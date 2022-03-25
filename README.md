@@ -66,6 +66,11 @@ steps:
 - `pull_request`
 -->
 
+## Dependencies
+
+- [actions/cache](https://github.com/actions/cache) >= 3.0.0
+- [GitHub CLI](https://cli.github.com/) >= 2.6.0
+
 ## Contributing
 
 Welcome.
