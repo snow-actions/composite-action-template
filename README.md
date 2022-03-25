@@ -61,6 +61,10 @@ steps:
 ### Events
 
 - Any
+<!--
+- `push`
+- `pull_request`
+-->
 
 ## Contributing
 
