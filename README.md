@@ -52,6 +52,7 @@ See [action.yml](action.yml)
 
 ### Runners
 
+- `ubuntu-22.04`
 - `ubuntu-20.04`
 - `ubuntu-18.04`
 - `windows-2022`
