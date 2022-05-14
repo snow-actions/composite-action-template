@@ -10,8 +10,6 @@ Learn how to use this template at [Wiki](https://github.com/snow-actions/composi
 
 ## Usage
 
-See [action.yml](action.yml)
-
 ### Basic
 
 ```yml
@@ -36,11 +34,15 @@ steps:
 
 ## Inputs
 
+See [action.yml](action.yml)
+
 | Name | Description | Default | Required |
 | - | - | - | - |
 | `who-to-greet` | Who to greet | `World` | yes |
 
 ## Outputs
+
+See [action.yml](action.yml)
 
 | Name | Description |
 | - | - |
