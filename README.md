@@ -52,13 +52,9 @@ See [action.yml](action.yml)
 
 ### Runners
 
-- `ubuntu-22.04`
-- `ubuntu-20.04`
-- `ubuntu-18.04`
-- `windows-2022`
-- `windows-2019`
-- `macos-11`
-- `macos-10.15`
+- `ubuntu-*`
+- `windows-*`
+- `macos-*`
 - `self-hosted`
 
 ### Events
@@ -71,6 +67,7 @@ See [action.yml](action.yml)
 
 ## Dependencies
 
+- Bash
 - [actions/cache](https://github.com/actions/cache) >= 3.0.0
 - [GitHub CLI](https://cli.github.com/) >= 2.6.0
 
