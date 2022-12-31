@@ -8,14 +8,24 @@ on:
   workflow_dispatch:
 
 jobs:
+  runners:
+    runs-on: ubuntu-latest
+    outputs:
+      all: ${{ steps.list.outputs.all }}
+      windows: ${{ steps.list.outputs.windows }}
+    steps:
+      - id: list
+        uses: snow-actions/list-github-hosted-runners@v1.0.0
+  
   test-bash:
+    needs: [ runners ]
     strategy:
       fail-fast: false
       matrix:
         # Runs on all supported runners
         # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
-        os: [ ubuntu-22.04, ubuntu-20.04, ubuntu-18.04, windows-2022, windows-2019, macos-11, macos-10.15 ]
-    runs-on: ${{ matrix.os }}
+        runner: ${{ fromJSON(needs.runners.outputs.all) }}
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 5
     defaults:
       run:
@@ -41,11 +51,12 @@ jobs:
       - run: test "$(cat greet.txt)" = "Hello composite action"
 
   test-powershell:
+    needs: [ runners ]
     strategy:
       fail-fast: false
       matrix:
-        os: [ windows-2022, windows-2019 ]
-    runs-on: ${{ matrix.os }}
+        runner: ${{ fromJSON(needs.runners.outputs.windows) }}
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 5
 
     steps:
