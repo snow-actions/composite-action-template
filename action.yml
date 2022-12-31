@@ -20,7 +20,7 @@ runs:
         GREET="Hello ${WHO}"
         echo "${GREET}"
         echo "${GREET}" > greet.txt
-        echo "::set-output name=word::${GREET}"
+        echo "word=${GREET}" >> $GITHUB_OUTPUT
       shell: bash
       env:
         WHO: ${{ inputs.who-to-greet }}
