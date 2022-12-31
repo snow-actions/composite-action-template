@@ -1,16 +1,19 @@
-name: 'Composite Action Template'
-description: 'Get started with Composite actions'
+name: Composite Action Template
+description: Get started with Composite actions
+branding:
+  icon: award
+  color: green
 inputs:
   who-to-greet:
-    description: 'Who to greet'
+    description: Who to greet
     required: true
-    default: 'World'
+    default: World
 outputs:
   greet:
-    description: 'The word we greeted you'
+    description: The word we greeted you
     value: ${{ steps.greet.outputs.word }}
 runs:
-  using: "composite"
+  using: composite
   steps:
     - id: greet
       run: |
@@ -21,6 +24,3 @@ runs:
       shell: bash
       env:
         WHO: ${{ inputs.who-to-greet }}
-branding:
-  icon: 'award'  
-  color: 'green'
